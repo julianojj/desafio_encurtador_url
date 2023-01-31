@@ -21,5 +21,5 @@ func NewShortenerRoute(app *gin.Engine, makeShortenerController *controllers.Mak
 
 func (s *ShortenerRoute) Init() {
 	s.App.POST("/cut", s.MakeShortenerController.Handle)
-	s.App.GET("/uncut", s.GetOriginalURLController.Handle)
+	s.App.GET("/uncut/:id", s.GetOriginalURLController.Handle)
 }
