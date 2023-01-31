@@ -37,4 +37,4 @@ Há 2 rotas disponíveis:
 
 POST /cut passando um json: { "url": "myurl" } retorna { "short": "mycode" }
 
-GET /uncut?code=mycode retorna { "url": "myurl" }
+GET /uncut/:id retorna { "url": "myurl" }
