@@ -18,7 +18,7 @@ func NewGetOriginalURLController(getOriginalURL *usecases.GetOriginalURL) *GetOr
 }
 
 func (m *GetOriginalURLController) Handle(c *gin.Context) {
-	shortURL := c.Query("code")
+	shortURL := c.Param("id")
 	output, err := m.GetOriginalURL.Execute(shortURL)
 	if err == nil {
 		c.JSON(http.StatusOK, output)
