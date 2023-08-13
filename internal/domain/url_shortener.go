@@ -1,6 +1,7 @@
 package domain
 
 import (
+	cryptorand "crypto/rand"
 	"errors"
 	"fmt"
 	"math/rand"
@@ -37,9 +38,9 @@ func (u *URLShortener) Shorten(url string) (string, error) {
 }
 
 func randomString(length int) string {
-	rand.Seed(time.Now().UnixNano())
+	rand.NewSource(time.Now().UnixNano())
 	b := make([]byte, length)
-	rand.Read(b)
+	cryptorand.Read(b)
 	return fmt.Sprintf("%x", b)[:length]
 }
 
